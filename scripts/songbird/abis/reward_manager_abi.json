@@ -131,7 +131,7 @@
             },
             {
                 "indexed": false,
-                "internalType": "enum IRewardManager.ClaimType",
+                "internalType": "enum RewardsV2Interface.ClaimType",
                 "name": "claimType",
                 "type": "uint8"
             },
@@ -266,17 +266,17 @@
                                 "type": "uint120"
                             },
                             {
-                                "internalType": "enum IRewardManager.ClaimType",
+                                "internalType": "enum RewardsV2Interface.ClaimType",
                                 "name": "claimType",
                                 "type": "uint8"
                             }
                         ],
-                        "internalType": "struct IRewardManager.RewardClaim",
+                        "internalType": "struct RewardsV2Interface.RewardClaim",
                         "name": "body",
                         "type": "tuple"
                     }
                 ],
-                "internalType": "struct IRewardManager.RewardClaimWithProof[]",
+                "internalType": "struct RewardsV2Interface.RewardClaimWithProof[]",
                 "name": "_proofs",
                 "type": "tuple[]"
             }
@@ -372,22 +372,100 @@
                                 "type": "uint120"
                             },
                             {
-                                "internalType": "enum IRewardManager.ClaimType",
+                                "internalType": "enum RewardsV2Interface.ClaimType",
                                 "name": "claimType",
                                 "type": "uint8"
                             }
                         ],
-                        "internalType": "struct IRewardManager.RewardClaim",
+                        "internalType": "struct RewardsV2Interface.RewardClaim",
                         "name": "body",
                         "type": "tuple"
                     }
                 ],
-                "internalType": "struct IRewardManager.RewardClaimWithProof[]",
+                "internalType": "struct RewardsV2Interface.RewardClaimWithProof[]",
                 "name": "_proofs",
                 "type": "tuple[]"
             }
         ],
         "name": "claim",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "_rewardAmountWei",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_msgSender",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_rewardOwner",
+                "type": "address"
+            },
+            {
+                "internalType": "address payable",
+                "name": "_recipient",
+                "type": "address"
+            },
+            {
+                "internalType": "uint24",
+                "name": "_rewardEpochId",
+                "type": "uint24"
+            },
+            {
+                "internalType": "bool",
+                "name": "_wrap",
+                "type": "bool"
+            },
+            {
+                "components": [
+                    {
+                        "internalType": "bytes32[]",
+                        "name": "merkleProof",
+                        "type": "bytes32[]"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "uint24",
+                                "name": "rewardEpochId",
+                                "type": "uint24"
+                            },
+                            {
+                                "internalType": "bytes20",
+                                "name": "beneficiary",
+                                "type": "bytes20"
+                            },
+                            {
+                                "internalType": "uint120",
+                                "name": "amount",
+                                "type": "uint120"
+                            },
+                            {
+                                "internalType": "enum RewardsV2Interface.ClaimType",
+                                "name": "claimType",
+                                "type": "uint8"
+                            }
+                        ],
+                        "internalType": "struct RewardsV2Interface.RewardClaim",
+                        "name": "body",
+                        "type": "tuple"
+                    }
+                ],
+                "internalType": "struct RewardsV2Interface.RewardClaimWithProof[]",
+                "name": "_proofs",
+                "type": "tuple[]"
+            }
+        ],
+        "name": "claimProxy",
         "outputs": [
             {
                 "internalType": "uint256",
@@ -510,6 +588,19 @@
         "outputs": [
             {
                 "internalType": "contract IIFlareSystemsManager",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "ftsoRewardManagerProxy",
+        "outputs": [
+            {
+                "internalType": "address",
                 "name": "",
                 "type": "address"
             }
@@ -699,7 +790,7 @@
                         "type": "uint120"
                     },
                     {
-                        "internalType": "enum IRewardManager.ClaimType",
+                        "internalType": "enum RewardsV2Interface.ClaimType",
                         "name": "claimType",
                         "type": "uint8"
                     },
@@ -709,7 +800,7 @@
                         "type": "bool"
                     }
                 ],
-                "internalType": "struct IRewardManager.RewardState[][]",
+                "internalType": "struct RewardsV2Interface.RewardState[][]",
                 "name": "_rewardStates",
                 "type": "tuple[][]"
             }
@@ -750,7 +841,7 @@
                         "type": "uint120"
                     },
                     {
-                        "internalType": "enum IRewardManager.ClaimType",
+                        "internalType": "enum RewardsV2Interface.ClaimType",
                         "name": "claimType",
                         "type": "uint8"
                     },
@@ -760,7 +851,7 @@
                         "type": "bool"
                     }
                 ],
-                "internalType": "struct IRewardManager.RewardState[]",
+                "internalType": "struct RewardsV2Interface.RewardState[]",
                 "name": "_rewardStates",
                 "type": "tuple[]"
             }
@@ -832,7 +923,7 @@
                 "type": "uint24"
             },
             {
-                "internalType": "enum IRewardManager.ClaimType",
+                "internalType": "enum RewardsV2Interface.ClaimType",
                 "name": "_claimType",
                 "type": "uint8"
             }
@@ -936,17 +1027,17 @@
                                 "type": "uint120"
                             },
                             {
-                                "internalType": "enum IRewardManager.ClaimType",
+                                "internalType": "enum RewardsV2Interface.ClaimType",
                                 "name": "claimType",
                                 "type": "uint8"
                             }
                         ],
-                        "internalType": "struct IRewardManager.RewardClaim",
+                        "internalType": "struct RewardsV2Interface.RewardClaim",
                         "name": "body",
                         "type": "tuple"
                     }
                 ],
-                "internalType": "struct IRewardManager.RewardClaimWithProof[]",
+                "internalType": "struct RewardsV2Interface.RewardClaimWithProof[]",
                 "name": "_proofs",
                 "type": "tuple[]"
             }
